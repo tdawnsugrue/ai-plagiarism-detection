@@ -71,9 +71,14 @@ def main(
                 temperature=temperature,
                 top_p=top_p,
             )
+            
         except RuntimeError as e:
             print(f"Runtime error occurred at line {i}. 'prob tensor contains either inf, nan, or element <0\nmsmarco entry:\n")
             print(dialogs[i])
+    f = open("bad_llama_subset.json", "w")
+    output = format_outputs(dialogs, results)
+    json.dump(output, f)
+    f.close()
 
 
 
