@@ -26,6 +26,9 @@ def format_for_index(filename = "generated-7b-chat.json", tag = "assistant",
         
         print(f"rewrote {c} prompts")
 
+def format_query_for_index(query: str, outfile):
+    outfile.write(f"<DOC>\n<DOCNO>1</DOCNO>\n{query}\n</DOC>")
+
 # grab_prompt.py already does this...
 def format_json_for_query(filename = "output-with-paraphrasing.json", tag = "paraphrased",
                      outfile = "para-queries.txt"):
